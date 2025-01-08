@@ -1,0 +1,6 @@
+transformers
+huggingface_hub
+nltk
+torch
+torchvision
+torchaudio
