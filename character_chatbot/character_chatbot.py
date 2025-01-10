@@ -20,13 +20,13 @@ def remove_paranthesis(text):
 
 
 
-class ChatacterChatBot():
+class CharacterChatBot():
 
-    def __init__(self, model_path, data_path="/content/data/naruto.csv", huggingface_token=None):
+    def __init__(self, model_path, data_path=r"C:\Users\Yazan\Desktop\AI_NLP_Series_analysis\data\jutsus.jsonl", huggingface_token=None):
         self.model_path = model_path
         self.data_path = data_path
         self.huggingface_token = huggingface_token
-        self.base_model_path="meta-llama/Meta-Llama-3-8B-Instruct"
+        self.base_model_path="AbdullahTarek/Naruto_Llama-3-8B"
         self.device = "cuda" if torch.cuda.is_available() else "cpu"
         
 
@@ -35,7 +35,7 @@ class ChatacterChatBot():
 
 
         if huggingface_hub.repo_exists(self.model_path):
-            self.model = self.load_model()
+            self.model = self.load_model(self.model_path)
         else:
             print("Model not found in Hugging Face Hub. Loading from local path...(training will be done also)")
             train_dataset = self.load_data()
@@ -48,7 +48,7 @@ class ChatacterChatBot():
         # history structure is like this [["hello, how are you?", "Hi, I'm fine thank you!"], []]
         messages = []
         # Add the system prompt
-        messages.append(""" You are Neruto from the anime "Naruto". Your responses should reflect his personality and speech patterns \n""")
+        messages.append({"role":"system", "content":""" You are Neruto from the anime "Naruto". Your responses should reflect his personality and speech patterns \n"""})
         
         for message_and_response in history:
             messages.append({"role":"user", "content":message_and_response[0]})
@@ -68,18 +68,25 @@ class ChatacterChatBot():
 
 
     def load_model(self, model_path):
-        bnb_config = BitsAndBytesConfig(
-            load_in_4bit=True,
-            bnb_4bit_quant_type="nf4",
-            bnb_4bit_compute_dtype=torch.bfloat16
-        )
-        pipeline = transformers.pipeline("text-generation",
-                                        model = model_path,
-                                        model_kwargs={"torch_dtype": torch.bfloat16,
-                                                     "quantization_config": bnb_config
-                                                      }
-                                        )
+        if self.device == 'cpu':
+            pipeline = transformers.pipeline("text-generation",
+                                            model=model_path,
+                                            device=-1
+                                            )
+        else:
+            bnb_config = BitsAndBytesConfig(
+                load_in_4bit=True,
+                bnb_4bit_quant_type="nf4",
+                bnb_4bit_compute_dtype=torch.bfloat16
+            )
+            pipeline = transformers.pipeline("text-generation",
+                                            model=model_path,
+                                            model_kwargs={"torch_dtype": torch.bfloat16,
+                                                        "quantization_config": bnb_config
+                                                        }
+                                            )
         return pipeline
+
 
     def train(self,
               base_model_name_or_path,

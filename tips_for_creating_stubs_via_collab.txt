@@ -1,0 +1,5 @@
+For creating stubs (not to wait to long on CPU) you can use google colab.
+1) open the notebook in folder "colab_notebook_run"
+2) change runtime to GPU or TPU
+3) add a data folder with the data required
+4) after running notebook download the stubs and put them in your project dir
