@@ -1,18 +1,6 @@
 # AI_NLP_Series_Analysis_Application
 
-Analyze Your Favorite Series with NLP
-
-## Project Description
 This project demonstrates how advanced NLP techniques and LLMs can be used to analyze and interact with a popular series. By combining dataset collection, machine learning, and interactive tools, it creates an engaging way to explore a series like never before. 
-
-### What You'll Learn
-- **Web Scraping:** Gather datasets using Scrapy crawlers.
-- **LLM Fine-tuning:** Customize large language models for character chatbots.
-- **NER Applications:** Build character networks with named entity recognition.
-- **Text Classification:** Classify fight scenes and themes using trained models and zero-shot techniques.
-- **Interactive GUI:** Deploy everything in an intuitive web app using Gradio.
-
-This project will enhance your resume with practical NLP skills and industry-relevant tools.
 
 ---
 
