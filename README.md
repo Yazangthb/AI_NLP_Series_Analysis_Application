@@ -17,7 +17,7 @@ The project is divided into five main components:
    - **Goal:** Simulate conversations with Naruto using a fine-tuned Llama LLM (8B).
    - **Tools Used:** Llama LLM, Hugging Face Transformers (trained with mized precision and LoRA).
    - **Outcome:** An interactive chatbot providing an immersive character interaction experience.
-![Naruto chatbot](./images/chatbot.png)
+![Naruto chatbot](./images/Chatbot.png)
 
 
 
