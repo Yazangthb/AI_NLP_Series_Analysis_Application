@@ -22,6 +22,8 @@ The project is divided into five main components:
    - **Goal:** Visualize character interactions and communication strength.
    - **Tools Used:** SpaCy NER, NetworkX, PyViz.
    - **Outcome:** A graph network revealing interaction patterns among characters.
+![graph network](./images/graph.png)
+
 
 4. **Theme and Text Classifiers**
    - **Theme Classifier:** Users input themes like "love" or "friendship" to visualize their prevalence in the series.
