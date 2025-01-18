@@ -17,6 +17,9 @@ The project is divided into five main components:
    - **Goal:** Simulate conversations with Naruto using a fine-tuned Llama LLM (8B).
    - **Tools Used:** Llama LLM, Hugging Face Transformers (trained with mized precision and LoRA).
    - **Outcome:** An interactive chatbot providing an immersive character interaction experience.
+![Naruto chatbot](./images/chatbot.png)
+
+
 
 3. **Character Network Visualization**
    - **Goal:** Visualize character interactions and communication strength.
@@ -30,6 +33,8 @@ The project is divided into five main components:
    - **Text Classifier:** Classify fight scenes based on provided descriptions.
    - **Tools Used:** Hugging Face Zero-Shot Classifier, Custom LLM Text Classifier.
    - **Outcome:** Bar plots of theme prevalence and fight scene classifications.
+![Themes distribution Naruto](./images/themes.png)
+
 
 5. **Interactive Web GUI**
    - **Goal:** Provide users an intuitive interface to access all features.
